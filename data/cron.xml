@@ -1,0 +1,23 @@
+<odoo>
+    <!-- Monthly Casual Leave Accrual -->
+    <record id="ir_cron_monthly_cl_accrual" model="ir.cron">
+        <field name="name">Monthly Casual Leave Accrual</field>
+        <field name="model_id" ref="model_casual_leave_accrual"/>
+        <field name="state">code</field>
+        <field name="code">model.run_monthly_cl_accrual()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">months</field>
+        <field name="active">True</field>
+    </record>
+
+    <!-- Year End Reset (31 March) -->
+    <record id="ir_cron_cl_year_reset" model="ir.cron">
+        <field name="name">Casual Leave Year Reset</field>
+        <field name="model_id" ref="model_casual_leave_accrual"/>
+        <field name="state">code</field>
+        <field name="code">model.run_cl_year_reset()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+</odoo>
